@@ -1,7 +1,7 @@
 ## Future Features 
-Add detail page for all shows./
-Mobile responsive./
-Display show title and link to detail page on hover./
+Add detail page for all shows.  
+Mobile responsive.  
+Display show title and link to detail page on hover.  
 
 # Getting Started with Create React App
 
@@ -74,5 +74,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-#Credit
+# Credit
 Site design taken from https://animedia.netlify.app/
