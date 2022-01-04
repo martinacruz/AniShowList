@@ -1,0 +1,70 @@
+/* <div className='grid-container'>
+<div className="grid-header">
+  <h2>top airing</h2>
+  <div className="line">..........</div>
+</div>
+<div className='show-list' key={show.id} >
+    <img src={show.image_url} />
+    </div>
+</div> */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #202020;
+    color: white;
+    overflow-x: hidden;
+}
+
+.grid-header {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 12px
+}
+.grid-header .line {
+    border: 2px solid rgb(83, 80, 80);
+    width: 85%;
+}
+
+.show-list{
+    display: flex;
+    align-items: center;
+    padding: 25px 0 30px 0;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+.show-list::-webkit-scrollbar {
+    height: 10px;
+}
+.show-list::-webkit-scrollbar-track {
+    /* background: rgba(83, 80, 80, 0.514); */
+    background: #222222be;
+}
+.show-list::-webkit-scrollbar-thumb {
+    background: rgba(41, 39, 39);
+}
+
+.show {
+    padding-left: 25px;
+    height: 300px;
+    width: 200px;
+}
+
+.show h3 {
+    display: none;
+}
+
+.show img {
+    max-width: 180px;
+    height: 270px;
+    border-radius: 3%;
+    object-fit: cover;
+}

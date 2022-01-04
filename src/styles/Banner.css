@@ -1,0 +1,48 @@
+.Banner {
+    height: 70vh;
+    width: 100%;
+    background: url('https://fanart.tv/fanart/tv/405661/tvposter/takt-opdestiny-60dcfc1be80be.jpg');
+    background-size: cover;
+    background-position-y: center;
+    transform: scaleX(-1);
+}
+
+.banner-gradient-y {
+    width: inherit;
+    height: inherit;
+    background: linear-gradient(
+0deg,#202020 3%,transparent 90%);
+}
+
+.banner-gradient-x {
+    width: inherit;
+    height: inherit;
+    background: linear-gradient(
+265deg,#202020 30%,transparent 70%);
+}
+
+.banner-info-container {
+    height: inherit;
+    width: inherit;
+    position: relative;
+    transform: scaleX(-1);
+
+
+
+}
+
+.banner-show-info {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 40vw;
+    padding-left: 40px;
+}
+
+.banner-show-title {
+    margin-bottom: 10px;
+}
+
+
+
