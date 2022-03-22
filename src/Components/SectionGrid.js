@@ -13,21 +13,21 @@ const SectionGrid = () => {
 
   useEffect(() => {
     const fetchTopAnime = async () => {
-        const response = await axios(`${PUBLIC_API_KEY}/top/anime`);
-        setTopAnime(response.data.top);
+      const response = await axios(`${PUBLIC_API_KEY}/top/anime`);
+      setTopAnime(response.data.top);
     };
     const fetchTopAiring = async () => {
-        const response = await axios(`${PUBLIC_API_KEY}/top/anime/1/airing`);
-        setTopAiring(response.data.top);
+      const response = await axios(`${PUBLIC_API_KEY}/top/anime/1/airing`);
+      setTopAiring(response.data.top);
     };
     const fetchTopManga = async () => {
-        const response = await axios(`${PUBLIC_API_KEY}/top/manga`);
-        setTopManga(response.data.top);
+      const response = await axios(`${PUBLIC_API_KEY}/top/manga`);
+      setTopManga(response.data.top);
     };
     const fetchUpcomingShows = async () => {
-        const response = await axios(`${PUBLIC_API_KEY}/top/anime/1/upcoming`);
-        setUpcomingShows(response.data.top);
-        setIsLoading(false);
+      const response = await axios(`${PUBLIC_API_KEY}/top/anime/1/upcoming`);
+      setUpcomingShows(response.data.top);
+      setIsLoading(false);
     };
     fetchTopAnime();
     fetchTopAiring();
@@ -36,10 +36,19 @@ const SectionGrid = () => {
   }, []);
 
   function displayShows(list) {
-    return list.slice(0, 20).map((show) => (
-      <div className="show" key={show.id}>
-        <h3>{show.title}</h3>
-        <img src={show.image_url} />
+    return list.slice(0, 20).map((show, idx) => (
+      <div key={idx}>
+        <a className="show" href={`/detail/${show.mal_id}`}>
+          <img className="show-img" src={show.image_url} alt="" />
+          <div className="card-info">
+            <h3>{show.title}</h3>
+            <button>DETAILS</button>
+            <div>
+              <h3>{show.type}</h3>
+              <h3>Score: {show.score === 0 ? "TBD" : show.score}</h3>
+            </div>
+          </div>
+        </a>
       </div>
     ));
   }
