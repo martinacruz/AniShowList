@@ -1,7 +1,5 @@
-## Future Features 
-Add detail page for all shows.  
-Mobile responsive.  
-Display show title and link to detail page on hover.  
+## Future Features   
+Mobile responsive. 
 
 # Getting Started with Create React App
 
