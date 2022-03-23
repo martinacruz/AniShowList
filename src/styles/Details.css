@@ -1,0 +1,28 @@
+.show-details {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.show-detail-content {
+  display: flex;
+  flex-direction: row;
+  margin: 25px 0;
+}
+
+.show-detail-text {
+  padding-left: 20px;
+  max-width: 850px;
+}
+
+.show-type {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.507);
+}
+
+.show-info {
+  margin-top: 10px;
+}
+
+span {
+  font-weight: bold;
+}

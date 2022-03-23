@@ -83,7 +83,7 @@ const SectionGrid = () => {
   function displayShows(list) {
     return list.slice(0, 20).map((show, idx) => (
       <div key={idx}>
-        <Link className="show" to={`/details/${show.mal_id}`} showinfo={show}>
+        <Link className="show" to={`/details/${show.mal_id}`}>
           <img className="show-img" src={show.image_url} alt="" />
           <div className="card-info">
             <h3>{show.title}</h3>

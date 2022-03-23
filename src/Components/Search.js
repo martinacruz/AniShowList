@@ -12,11 +12,15 @@ const Search = () => {
     setSearchText(e);
   };
 
-  const resetInput = (e) => {
-    setEmptySearch(true);
-    setSearchResults([]);
-    setSearchText("");
-  };
+  //onBlur also affects clicking shows in dropDown menu.
+  //Need to find a way to check what its clicking
+  //maybe add and onClick instead and if target value specific attribute
+  //dont do anything but its normal function
+  // const resetInput = () => {
+  //   setEmptySearch(true);
+  //   setSearchResults([]);
+  //   setSearchText("");
+  // };
 
   useEffect(() => {
     const fetchSearch = async () => {
@@ -45,7 +49,6 @@ const Search = () => {
         placeholder="Search..."
         value={searchText}
         onChange={(e) => getSearch(e.target.value)}
-        onBlur={resetInput}
       />
       <DropDown emptySearch={emptySearch} searchResults={searchResults} />
     </div>
