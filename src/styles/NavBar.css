@@ -6,6 +6,11 @@
   z-index: 1;
 }
 
+.logo {
+  text-decoration: none;
+  color: white;
+}
+
 .nav-left {
   display: flex;
   align-items: center;
@@ -20,4 +25,8 @@
   text-decoration: none;
   color: rgba(255, 255, 255, 0.712);
   padding-left: 30px;
+}
+
+.link:hover {
+  color: orange;
 }
