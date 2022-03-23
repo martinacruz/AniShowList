@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 import "../styles/SectionGrid.css";
@@ -12,33 +13,77 @@ const SectionGrid = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const controller = new AbortController();
+
     const fetchTopAnime = async () => {
-      const response = await axios(`${PUBLIC_API_KEY}/top/anime`);
-      setTopAnime(response.data.top);
+      try {
+        const response = await axios(`${PUBLIC_API_KEY}/top/anime`, {
+          signal: controller.signal,
+        });
+        setTopAnime(response.data.top);
+      } catch (error) {
+        if (error.name === "AbortError") {
+          console.log("fetch aborted");
+        } else {
+          throw error;
+        }
+      }
     };
     const fetchTopAiring = async () => {
-      const response = await axios(`${PUBLIC_API_KEY}/top/anime/1/airing`);
-      setTopAiring(response.data.top);
+      try {
+        const response = await axios(`${PUBLIC_API_KEY}/top/anime/1/airing`, {
+          signal: controller.signal,
+        });
+        setTopAiring(response.data.top);
+      } catch (error) {
+        if (error.name === "AbortError") {
+          console.log("fetch aborted");
+        } else {
+          throw error;
+        }
+      }
     };
     const fetchTopManga = async () => {
-      const response = await axios(`${PUBLIC_API_KEY}/top/manga`);
-      setTopManga(response.data.top);
+      try {
+        const response = await axios(`${PUBLIC_API_KEY}/top/manga`, {
+          signal: controller.signal,
+        });
+        setTopManga(response.data.top);
+      } catch (error) {
+        if (error.name === "AbortError") {
+          console.log("fetch aborted");
+        } else {
+          throw error;
+        }
+      }
     };
     const fetchUpcomingShows = async () => {
-      const response = await axios(`${PUBLIC_API_KEY}/top/anime/1/upcoming`);
-      setUpcomingShows(response.data.top);
-      setIsLoading(false);
+      try {
+        const response = await axios(`${PUBLIC_API_KEY}/top/anime/1/upcoming`, {
+          signal: controller.signal,
+        });
+        setUpcomingShows(response.data.top);
+        setIsLoading(false);
+      } catch (error) {
+        if (error.name === "AbortError") {
+          console.log("fetch aborted");
+        } else {
+          throw error;
+        }
+      }
     };
     fetchTopAnime();
     fetchTopAiring();
     fetchTopManga();
     fetchUpcomingShows();
+
+    return () => controller.abort();
   }, []);
 
   function displayShows(list) {
     return list.slice(0, 20).map((show, idx) => (
       <div key={idx}>
-        <a className="show" href={`/details/${show.mal_id}`}>
+        <Link className="show" to={`/details/${show.mal_id}`} showinfo={show}>
           <img className="show-img" src={show.image_url} alt="" />
           <div className="card-info">
             <h3>{show.title}</h3>
@@ -48,7 +93,7 @@ const SectionGrid = () => {
               <h3>Score: {show.score === 0 ? "TBD" : show.score}</h3>
             </div>
           </div>
-        </a>
+        </Link>
       </div>
     ));
   }

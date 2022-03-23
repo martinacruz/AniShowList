@@ -12,6 +12,12 @@ const Search = () => {
     setSearchText(e);
   };
 
+  const resetInput = (e) => {
+    setEmptySearch(true);
+    setSearchResults([]);
+    setSearchText("");
+  };
+
   useEffect(() => {
     const fetchSearch = async () => {
       if (searchText.length < 3) return;
@@ -39,6 +45,7 @@ const Search = () => {
         placeholder="Search..."
         value={searchText}
         onChange={(e) => getSearch(e.target.value)}
+        onBlur={resetInput}
       />
       <DropDown emptySearch={emptySearch} searchResults={searchResults} />
     </div>

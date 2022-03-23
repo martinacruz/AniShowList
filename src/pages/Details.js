@@ -1,6 +1,7 @@
 import React from "react";
 
-function Details() {
+function Details({ showInfo }) {
+  console.log(showInfo);
   return (
     <div>
       <h1>Details Page</h1>
